@@ -32,6 +32,7 @@ scp -i improving-key.pem acesso_init.sql ec2-user@$instanceip:~/
 
 echo "Copiando app para a maquina..."
 scp -i improving-key.pem acesso.jar ec2-user@$instanceip:~/
+scp -i improving-key.pem start-script.sh ec2-user@$instanceip:~/
 
 echo "Criando instancia RDS..."
 aws rds create-db-instance --db-instance-identifier improving-db \
