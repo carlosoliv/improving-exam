@@ -30,7 +30,9 @@ ENV DATASOURCE_USERNAME $dbuser
 ENV DATASOURCE_PASSWORD $dbpass
 
 COPY acesso.jar .
+COPY start-script.sh .
+RUN chmod +x start-script.sh
 
-ENTRYPOINT ["java", "-Dspring.datasource.url=\$DATASOURCE_URL", "-Dspring.datasource.username=\$DATASOURCE_USERNAME", "-Dspring.datasource.password=\$DATASOURCE_PASSWORD", "-jar", "acesso.jar"]
+ENTRYPOINT ["./start-script.sh"]
 
 EOT
