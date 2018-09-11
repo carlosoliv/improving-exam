@@ -8,6 +8,8 @@ echo "Criado security group $secgroup."
 
 secgroupOwner=$(aws ec2 describe-security-groups --group-names improving-sg --query 'SecurityGroups[0].OwnerId' --output text)
 
+aws ec2 authorize-security-group-ingress --group-name default --protocol tcp --port 5432 --source-group improving-sg
+aws ec2 authorize-security-group-ingress --group-name improving-sg --protocol tcp --port 9095 --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress --group-name improving-sg --protocol tcp --port 22 --cidr 0.0.0.0/0
 echo "Liberada conexao ssh para o security group $secgroup."
 
