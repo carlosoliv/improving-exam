@@ -31,6 +31,6 @@ ENV DATASOURCE_PASSWORD $dbpass
 
 COPY acesso.jar .
 
-ENTRYPOINT ["java", "-Dspring.datasource.url=$DATASOURCE_URL", "-Dspring.datasource.username=$DATASOURCE_USERNAME", "-Dspring.datasource.password=$DATASOURCE_PASSWORD", "-jar", "acesso.jar"]
+ENTRYPOINT ["java", "-Dspring.datasource.url=\$DATASOURCE_URL", "-Dspring.datasource.username=\$DATASOURCE_USERNAME", "-Dspring.datasource.password=\$DATASOURCE_PASSWORD", "-jar", "acesso.jar"]
 
 EOT
