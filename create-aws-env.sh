@@ -62,4 +62,4 @@ echo "Fazendo build da imagem..."
 ssh -i improving-key.pem ec2-user@$instanceip "docker build -t improvingapp:v1 ."
 
 echo "Rodando app..."
-ssh -i improving-key.pem ec2-user@$instanceip "docker run -d -it --rm --name improving-run improvingapp:v1"
+ssh -i improving-key.pem ec2-user@$instanceip "docker run -d -p 9095:9095 -it --rm --name improving-run improvingapp:v1"

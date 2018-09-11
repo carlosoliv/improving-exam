@@ -25,6 +25,8 @@ WORKDIR /data
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+EXPOSE 9095
+
 ENV DATASOURCE_URL jdbc:postgresql://$dbhost:5432/improving
 ENV DATASOURCE_USERNAME $dbuser
 ENV DATASOURCE_PASSWORD $dbpass
